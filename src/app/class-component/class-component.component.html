@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<p>class-component works! : {{ClassComponent}}</p>
+<div>{{fdf}}</div>
+<div>{{name}}</div>
+<div>{{lastname}}</div>
+<div [class.text-danger]="hasError">{{greetings()}}</div>
+<h1 [ngClass]="messageClasses">test Style Classes</h1>
+<h2 [style.color]="hasError ? 'orange' : 'blue'">orange</h2>
+<input type="text" #myInput>
+<button [ngClass]="messageClasses" (click)="logMessage(myInput.value)">Log</button>
+<div><input [(ngModel)]="name" type="text">
+    {{name}}
+</div>
+<h2 *ngIf="displayName; then thenBlock; else elseDiv">ngif</h2>
+
+<ng-template #thenBlock>this is thenBlock when true </ng-template>
+<ng-template #elseDiv>this is else block when false</ng-template>
+
+
+<div [ngSwitch]="switchNumber">
+    <div *ngSwitchCase="1">1</div>
+    <div *ngSwitchCase="2">2</div>
+    <div *ngSwitchCase="3">3</div>
+    <div *ngSwitchDefault>Default</div>
+</div>
