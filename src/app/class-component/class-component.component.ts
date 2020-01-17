@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
+import { LogService } from '../log.service';
+
 
 @Component({
   selector: '[app-class-component]',
@@ -32,7 +34,14 @@ export class ClassComponentComponent implements OnInit {
     'text-special': !this.isSpecial,
     'text-danger': this.hasError
   }
-  constructor() { }
+  constructor(@Optional() private logger: LogService) {
+    if (this.logger) {
+      this.logger.log("classComponent Log");
+    }
+    let num: number;
+    num = 1000;
+
+  }
 
 
   ngOnInit() {
@@ -44,5 +53,7 @@ export class ClassComponentComponent implements OnInit {
   logMessage(value) {
     console.log(value);
   }
+
+
 
 }
