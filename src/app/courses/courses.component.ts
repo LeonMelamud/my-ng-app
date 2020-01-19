@@ -1,5 +1,6 @@
+import { LogService } from './../log.service';
 import { CoursesService } from './courses.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 
 @Component({
   selector: 'courses',
@@ -12,15 +13,12 @@ import { Component, OnInit } from '@angular/core';
 export class CoursesComponent {
   title = "List of Courses";
   courses = [];
-  //dependency injaction
-  constructor(service: CoursesService) {
+
+  constructor(private logger: LogService, service: CoursesService) {
     this.courses = service.getCourses();
 
   }
-
-  ngOnInit() {
-  }
-  getTitle() {
-    return this.title;
+  private getTitle() {
+    this.logger.info(this.title, this.courses);
   }
 }

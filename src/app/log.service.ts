@@ -60,8 +60,6 @@ export class LogService {
       console.log(entry.buildLogString());
     }
   }
-
-
   debug(msg: string, ...optionalParams: any[]) {
     this.writeToLog(msg, LogLevel.Debug,
       optionalParams);
